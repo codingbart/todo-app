@@ -1,9 +1,14 @@
-function App() {
+import { RouterProvider } from 'react-router'
+import { AuthProvider } from '@/screens/auth/AuthProvider'
+import { ErrorBoundary } from '@/components/feedback/ErrorBoundary'
+import { router } from '@/router'
+
+export default function App() {
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <h1 className="text-4xl font-bold">Hello</h1>
-    </div>
+    <ErrorBoundary>
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </ErrorBoundary>
   )
 }
-
-export default App
